@@ -116,8 +116,9 @@ body {
 }
 
 .home .couple img {
-  width: 100%;
-  margin-top: 30px;
+  width: 110%;
+  margin-top: 20px;
+  border-radius: 25%;
 }
 
 .event {
@@ -297,14 +298,48 @@ body {
   }
 
   .home .couple img {
-    width: 80%;
     margin-top: 0;
+    width: 80%;
   }
 
   .home .couple .shabna {
     margin-top: 50px;
+    margin-left: 25px;
+  }
+  .timeline::before {
+    left: 60px;
+  }
+
+  .timeline li .timeline-img {
+    left: 15px;
+    margin-left: 45px;
+    margin-top: 0;
+    width: 140px;
+    height: 140px;
+  }
+
+  .timeline li .timeline-panel {
+    float: right;
+    width: calc(100% - 200px);
+  }
+
+  .timeline li.timeline-inverted .timeline-panel {
+    width: calc(100% - 200px);
+  }
+
+  .timeline li .timeline-panel::before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+    top: 50px;
+  }
+
+  .timeline li.timeline-inverted .timeline-panel::before {
+    top: 50px;
   }
 }
+
 /* Tablet */
 @media (max-width: 768px) {
   html {
@@ -316,6 +351,11 @@ body {
     display: flex;
   }
 
+  .home .couple img {
+    margin-top: 5px;
+    width: 85%;
+  }
+
   .event {
     display: flex;
     justify-content: center;
@@ -324,6 +364,18 @@ body {
 
   .event .resepsi {
     margin-top: 20px;
+  }
+
+  .timeline li .timeline-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .timeline li .timeline-panel {
+    width: 70%;
+  }
+  .timeline li.timeline-inverted .timeline-panel {
+    width: 70%;
   }
 }
 /* Mobile Phone */
