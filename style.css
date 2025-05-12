@@ -377,6 +377,14 @@ body {
   .timeline li.timeline-inverted .timeline-panel {
     width: 70%;
   }
+
+  .timeline li .timeline-panel::before {
+    top: 40px;
+  }
+
+  .timeline li.timeline-inverted .timeline-panel::before {
+    top: 40px;
+  }
 }
 /* Mobile Phone */
 @media (max-width: 576px) {
