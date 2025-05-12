@@ -372,10 +372,10 @@ body {
   }
 
   .timeline li .timeline-panel {
-    width: 70%;
+    width: 60%;
   }
   .timeline li.timeline-inverted .timeline-panel {
-    width: 70%;
+    width: 60%;
   }
 
   .timeline li .timeline-panel::before {
