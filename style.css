@@ -37,6 +37,7 @@ body {
   color: var(--blue);
   text-shadow: var(--shadow);
   margin-top: 25px;
+  font-weight: 600;
 }
 
 .hero h4 {
@@ -121,7 +122,8 @@ body {
   border-radius: 25%;
 }
 
-.event {
+.event,
+.rsvp {
   min-height: 100vh;
   background-image: url(img/bg-black.png);
   color: var(--white);
@@ -170,7 +172,8 @@ body {
   font-weight: 300;
 }
 
-.story {
+.story,
+.gallery {
   padding-top: 6rem;
   padding-bottom: 4rem;
   background-image: url(img/SALE.png);
@@ -178,7 +181,8 @@ body {
   background-size: cover;
 }
 
-.story span {
+.story span,
+.gallery span {
   text-transform: uppercase;
   color: #666;
   font-size: 0.7rem;
@@ -187,12 +191,27 @@ body {
   display: block;
 }
 
-.story p {
+.gallery h7,
+.gallery h8 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--blue);
+}
+
+.gallery h7 {
+  letter-spacing: -1px;
+  font-style: italic;
+}
+
+.story p,
+.gallery p {
   font-size: 1rem;
   font-weight: 300;
 }
 
-.story h2 {
+.story h2,
+.gallery h2 {
   font-family: Handlee;
   font-size: 5rem;
   color: var(--blue);
@@ -238,7 +257,7 @@ body {
   position: absolute;
   left: 50%;
   background-color: var(--blue);
-  border-radius: 25%;
+  border-radius: 30%;
   transform: translateX(-50%);
   background-size: cover;
   background-position: center;
@@ -252,7 +271,7 @@ body {
   border: 1px solid var(--blue);
   padding: 1.5rem;
   position: relative;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .timeline li .timeline-panel::before {
@@ -273,7 +292,7 @@ body {
   border: 1px solid var(--blue);
   padding: 1.5rem;
   position: relative;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .timeline li.timeline-inverted .timeline-panel::before {
@@ -287,6 +306,107 @@ body {
   top: 90px;
   right: auto;
   left: -15px;
+}
+
+.gallery {
+  background-image: url(img/bghome.png);
+}
+
+.gallery .img-fluid {
+  box-shadow: var(--shadow);
+}
+
+.rsvp {
+  background-image: url(img/rsvp2.png);
+  color: var(--blue);
+}
+
+.rsvp h2 {
+  font-family: Handlee;
+  font-size: 5rem;
+  text-shadow: var(--shadow);
+  margin-top: 10px;
+}
+
+.rsvp span {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.rsvp p {
+  font-size: 1rem;
+}
+
+.form-label {
+  color: var(--blue);
+  font-size: 1rem;
+}
+
+/* Komentar */
+
+.jumlah-komen {
+  position: relative;
+  font-size: 1rem;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.comment {
+  color: var(--blue);
+  position: relative; /* Atau fixed */
+  top: -3px; /* Nilai negatif untuk memindahkan ke atas */
+  left: -5px; /* Untuk memposisikan di tepi kiri */
+  padding: 10px;
+}
+
+.comment2 {
+  color: var(--blue);
+  position: relative; /* Atau fixed */
+  top: -3px; /* Nilai negatif untuk memindahkan ke atas */
+  left: -16px; /* Untuk memposisikan di tepi kiri */
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.parents {
+  width: 100%;
+  background-color: rgba(185, 171, 135, 0.8);
+  display: flex;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid #fff;
+}
+
+.parents img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-left: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.parents h1 {
+  font-size: 0.9rem;
+  text-transform: none;
+  font-weight: bold;
+}
+
+.parents p {
+  margin: 10px 0;
+  font-size: 0.8rem;
+  text-transform: none;
+}
+
+.parents .date {
+  display: flex;
+  top: -50;
+  left: 0;
+  font-size: 0.7rem;
+  color: #808080;
 }
 
 /* Media Query */
@@ -345,6 +465,7 @@ body {
   html {
     font-size: 65%;
   }
+
   .home {
     justify-content: center;
     align-items: center;
@@ -369,6 +490,9 @@ body {
   .timeline li .timeline-img {
     width: 110px;
     height: 110px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 40%;
   }
 
   .timeline li .timeline-panel {
@@ -390,5 +514,16 @@ body {
 @media (max-width: 576px) {
   html {
     font-size: 60%;
+  }
+
+  .hero main {
+    margin-top: 350px;
+  }
+
+  .timeline li .timeline-panel {
+    width: 60%;
+  }
+  .timeline li.timeline-inverted .timeline-panel {
+    width: 60%;
   }
 }

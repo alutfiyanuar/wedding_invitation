@@ -36,7 +36,7 @@
         <h1>Lutfi & Shabna</h1>
         <p>Akan melangsungkan resepsi pernikahan dalam:</p>
         <div class="simply-countdown"></div>
-        <a href="#home" class="btn btn-lg mt-3">Lihat Undangan</a>
+        <a href="#home" class="btn btn-lg mt-3" onClick="enableScroll()">Lihat Undangan</a>
       </main>
     </section>
 
@@ -214,7 +214,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
 
               <!-- Story Lamaran -->
               <li>
-                <div class="timeline-img" style="background-image: url(img/nastar.png);"></div>
+                <div class="timeline-img" style="background-image: url(img/bgstory3.png);"></div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h3>Lamaran</h3>
@@ -228,7 +228,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
 
               <!-- Story Pernikahan -->
               <li class="timeline-inverted">
-                <div class="timeline-img" style="background-image: url(img/nastar.png);"></div>
+                <div class="timeline-img" style="background-image: url(img/bgstory4.png);"></div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h3>Hari Pernikahan</h3>
@@ -246,11 +246,131 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       </div>
     </section>
 
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <span>Memori Kisah Kami</span>
+            <h2>Gallery Foto</h2>
+            <p>Every Love Story is Beautiful, But Ours Is My Favorite.</p>
+          </div>
+        </div>
+
+        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-3 row-cols-2 justify-content-center">
+          <div class="col mt-3">
+            <a href="img/gallery/1.jpg" data-toggle="lightbox" data-caption="Puncak Bogor" data-gallery="mygallery">
+              <img src="img/gallery/thumbnail/1.jpeg" alt="Lutfi & Shabna 1" class="img-fluid w-100 rounded">
+            </a>
+          </div>
+          <div class="col mt-3">
+            <a href="img/gallery/2.jpg" data-toggle="lightbox" data-caption="Pintu 3 Kebun Raya Cibodas" data-gallery="mygallery">
+              <img src="img/gallery/thumbnail/2.jpeg" alt="Lutfi & Shabna 2" class="img-fluid w-100 rounded">
+            </a>
+          </div>
+          <div class="col mt-3">
+            <a href="img/gallery/3.png" data-toggle="lightbox" data-caption="Pintu 3 Kebun Raya Cibodas" data-gallery="mygallery">
+              <img src="img/gallery/thumbnail/3.jpeg" alt="Lutfi & Shabna 3" class="img-fluid w-100 rounded">
+            </a>
+          </div>
+          <div class="col mt-3">
+            <a href="img/gallery/4.jpg" data-toggle="lightbox" data-caption="Pintu 3 Kebun Raya Cibodas" data-gallery="mygallery">
+              <img src="img/gallery/thumbnail/4.jpeg" alt="Lutfi & Shabna4" class="img-fluid w-100 rounded">
+            </a>
+          </div>
+          <div class="col mt-3">
+            <a href="img/gallery/5.jpeg" data-toggle="lightbox" data-caption="Photomatics Pos Bloc" data-gallery="mygallery">
+              <img src="img/gallery/thumbnail/5.jpeg" alt="Lutfi & Shabna 5" class="img-fluid w-100 rounded">
+            </a>
+          </div>
+          <div class="col mt-3">
+            <a href="img/gallery/6.jpeg" data-toggle="lightbox" data-caption="Make It Happen Cafe" data-gallery="mygallery">
+              <img src="img/gallery/thumbnail/6.jpeg" alt="Lutfi & Shabna 6" class="img-fluid w-100 rounded">
+            </a>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 mt-5 text-center">
+            <h7>" Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berpikir. "</h7>
+            <br>
+            <h8> ( Q.S. Ar-Rum: 21 )</h8>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section id="rsvp" class="rsvp">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <span>Konfirmasi Kehadiran</span>
+            <h2>RSVP</h2>
+            <p>Isi form dibawah ini untuk melakukan konfirmasi kehadiran.</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="comment-section py-2 commentbox" style="max-width: 460px">
+
+        <!-- Comment Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="jumlah-komen">
+              <i class="bi bi-chat-left-text"></i>
+              <span id="comment" class="comment">0</span>
+              <span class="comment2">Komentar</span></div>
+            <form>
+              <div class="mb-3 content">
+                <input
+                  type="text"
+                  class="user form-control"
+                  id="commentName"
+                  placeholder="Nama Anda"
+                />
+              </div>
+              <div class="mb-3">
+                <select class="form-select form-select-sm" aria-label="Small select example">
+                    <option selected>Pilih Salah Satu</option>
+                 <option value="1">Hadir</option>
+                 <option value="2">Tidak Hadir</option>
+                </select>
+                
+              </div>
+              <div class="mb-3 commentinput">
+                <textarea
+                  class="usercomment form-control"
+                  id="commentContent"
+                  rows="3"
+                  placeholder="Ucapan"
+                ></textarea>
+              </div class="buttons">
+              <button type="submit" class="btn btn-primary" disabled id="publish"><i class="bi bi-send"></i>
+                Kirim
+              </button>
+            </form>
+          </div>
+          <div class="comments"></div>
+        </div>
+
+       
+          </div>
+        </div>
+    </section>
+          
+
+
+
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
 
     <script>
       simplyCountdown(".simply-countdown", {
@@ -308,7 +428,91 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
         /* options */
       });
     </script>
+
+    <script>
+      "use strict";
+
+      const userId = {
+        name: null,
+        identity: null,
+        image: null,
+        message: null,
+        date: null,
+      };
+
+      const userComment = document.querySelector(".usercomment");
+      const publishBtn = document.querySelector("#publish");
+      const comments = document.querySelector(".comments");
+      const userName = document.querySelector(".user");
+
+      userComment.addEventListener("input", (e) => {
+        if (!userComment.value) {
+          publishBtn.setAttribute("disabled", "disabled");
+          publishBtn.classList.remove("abled");
+        } else {
+          publishBtn.removeAttribute("disabled");
+          publishBtn.classList.add("abled");
+        }
+      });
+
+      function addPost() {
+        console.log("The Button works!");
+        if (!userComment.value) return;
+        userId.name = userName.value;
+        if (userId.name === "Anonymous") {
+          userId.identity = false;
+          userId.image = "user.png";
+        } else {
+          userId.identity = true;
+          userId.image = "user.png";
+        }
+
+        userId.message = userComment.value;
+        userId.date = new Date().toLocaleDateString();
+        let publihed = `<div class="parents">
+          <img src="${userId.image}">
+          <div>
+            <h1>${userId.name}</h1>
+            <span class="date">${userId.date}</span>
+            <p>${userId.message}</p>
+            
+            </div>
+          </div>`;
+
+        comments.innerHTML += publihed;
+        userComment.value = "";
+
+        let commentsNum = document.querySelectorAll(".parents").length;
+        document.getElementById("comment").textContent = commentsNum;
+      }
+
+      publishBtn.addEventListener("click", addPost);
+    </script>
+
+
+<script>
+  const rootElement = document.querySelector(":root");
+      function disableScroll() {
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        window.onscroll = function (){
+        window.scrollTo(scrollTop, scrollLeft);
+        }
+
+        
+        rootElement.style.scrollBehavior = "auto";
+      }
+
+            function enableScroll() {
+         window.onscroll = function (){ }
+         rootElement.style.scrollBehavior = "smooth";
+      }
+
+        disableScroll();
+</script>
+
   </body>
 </html>
 
-          
+
