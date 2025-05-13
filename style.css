@@ -338,6 +338,18 @@ body {
   font-size: 1rem;
 }
 
+.rsvp .card {
+  border-radius: 10px;
+  background-color: #eff2f6;
+}
+
+.rsvp .card-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #eff2f6;
+}
+
 .form-label {
   color: var(--blue);
   font-size: 1rem;
@@ -355,7 +367,7 @@ body {
 .comment {
   color: var(--blue);
   position: relative; /* Atau fixed */
-  top: -3px; /* Nilai negatif untuk memindahkan ke atas */
+  top: -2px; /* Nilai negatif untuk memindahkan ke atas */
   left: -5px; /* Untuk memposisikan di tepi kiri */
   padding: 10px;
 }
@@ -363,7 +375,7 @@ body {
 .comment2 {
   color: var(--blue);
   position: relative; /* Atau fixed */
-  top: -3px; /* Nilai negatif untuk memindahkan ke atas */
+  top: -2px; /* Nilai negatif untuk memindahkan ke atas */
   left: -16px; /* Untuk memposisikan di tepi kiri */
   text-transform: none !important;
   letter-spacing: 0 !important;
@@ -371,11 +383,11 @@ body {
 
 .parents {
   width: 100%;
-  background-color: rgba(185, 171, 135, 0.8);
+  background-color: #eff2f6;
   display: flex;
   margin-bottom: 30px;
   padding: 10px;
-  border: 1px solid #fff;
+  border-top: 1px solid var(--blue);
 }
 
 .parents img {
@@ -393,6 +405,7 @@ body {
   font-size: 0.9rem;
   text-transform: none;
   font-weight: bold;
+  color: var(--blue);
 }
 
 .parents p {
@@ -516,8 +529,12 @@ body {
     font-size: 60%;
   }
 
-  .hero main {
-    margin-top: 350px;
+  .hero h4 {
+    margin-top: 30px;
+  }
+
+  .hero p {
+    margin-bottom: 280px;
   }
 
   .timeline li .timeline-panel {

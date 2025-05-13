@@ -345,7 +345,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
                   placeholder="Ucapan"
                 ></textarea>
               </div class="buttons">
-              <button type="submit" class="btn btn-primary" disabled id="publish"><i class="bi bi-send"></i>
+              <button type="submit" class="btn btn-primary" disabled id="publish" target="_self"><i class="bi bi-send"></i>
                 Kirim
               </button>
             </form>
@@ -372,6 +372,8 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
 
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
 
+
+    <!-- Javascript Simply Countdown -->
     <script>
       simplyCountdown(".simply-countdown", {
         year: 2027, // Target year (required)
@@ -429,7 +431,35 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       });
     </script>
 
+    <!-- Javascript Halaman Utama -->
+
     <script>
+  const rootElement = document.querySelector(":root");
+      function disableScroll() {
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        window.onscroll = function (){
+        window.scrollTo(scrollTop, scrollLeft);
+        }
+
+        
+        rootElement.style.scrollBehavior = "auto";
+      }
+
+            function enableScroll() {
+         window.onscroll = function (){ }
+         rootElement.style.scrollBehavior = "smooth";
+         localStorage.setItem("opened", "true");
+      }
+
+      if(!localStorage.getItem("opened")){
+        disableScroll();
+      }
+</script>
+
+      <!-- Javascript Kolom komentar -->
+   <script>
       "use strict";
 
       const userId = {
@@ -445,7 +475,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       const comments = document.querySelector(".comments");
       const userName = document.querySelector(".user");
 
-      userComment.addEventListener("input", (e) => {
+      userComment.addEventListener("input", e => {
         if (!userComment.value) {
           publishBtn.setAttribute("disabled", "disabled");
           publishBtn.classList.remove("abled");
@@ -469,7 +499,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
 
         userId.message = userComment.value;
         userId.date = new Date().toLocaleDateString();
-        let publihed = `<div class="parents">
+        let publihsed = `<div class="parents">
           <img src="${userId.image}">
           <div>
             <h1>${userId.name}</h1>
@@ -479,7 +509,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
             </div>
           </div>`;
 
-        comments.innerHTML += publihed;
+        comments.innerHTML += publihsed;
         userComment.value = "";
 
         let commentsNum = document.querySelectorAll(".parents").length;
@@ -487,30 +517,14 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       }
 
       publishBtn.addEventListener("click", addPost);
+      publishBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // Mencegah aksi default tombol refresh
+          // Lakukan tindakan lain jika diperlukan
+        });
     </script>
 
 
-<script>
-  const rootElement = document.querySelector(":root");
-      function disableScroll() {
-        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
-        window.onscroll = function (){
-        window.scrollTo(scrollTop, scrollLeft);
-        }
-
-        
-        rootElement.style.scrollBehavior = "auto";
-      }
-
-            function enableScroll() {
-         window.onscroll = function (){ }
-         rootElement.style.scrollBehavior = "smooth";
-      }
-
-        disableScroll();
-</script>
 
   </body>
 </html>
