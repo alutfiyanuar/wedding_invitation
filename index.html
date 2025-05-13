@@ -72,39 +72,48 @@
     <!-- Home -->
     <section id="home" class="home w-100 h-100 d-flex">
       <div class="container">
+
+        
         <div class="row justify-content-center">
+          
           <div class="col-md-8 text-center">
             <h4>Assalamualaikum Wr. Wb.</h4>
-            <p>Atas Karunia Tuhan Yang Maha Esa, perkenankanlah kami
-menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</p>
+            <p>Atas Karunia Tuhan Yang Maha Esa, perkenankanlah kami menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</p>
           </div>
         </div>
         <div class="row couple">
         <div class="col-lg-6 upi">
-          <div class="row">
+          <div class="row align-items-center">
             <div class="col-8 text-end">
               <h2>Lutfi</h2>
               <h4>Lutfi Yanuar Ahmadi</h4>
               <p>Putra kedua dari <br> Bpk. Syamsiar Ahmadi<br>dan Ibu Rini Indriyati</p>
             </div>
             <div class="col-4">
-              <img src="img/Lutfi.png" alt="Lutfi Yanuar" class="img-responsive">
+              <img src="img/Lutfi2.jpeg" alt="Lutfi Yanuar" class="img-responsive">
             </div>
           </div>
         </div>
 
         <div class="col-lg-6 ana">
-          <div class="row shabna">
+          <div class="row shabna mb-4 align-items-center">
             <div class="col-4">
-              <img src="img/Shabna.png" alt="Shabna Achmad" class="img-responsive">
+              <img src="img/Shabna2.jpeg" alt="Shabna Achmad" class="img-responsive">
             </div>
             <div class="col-8">
               <h2>Shabna</h2>
               <h4>Shabna Achmad</h4>
-              <p>Putra kedua dari <br> Bpk. Achmad Bugis<br>dan Ibu ....</p>
+              <p>Putra kedua dari <br> Bpk. Achmad Bugis<br>dan Ibu Nadiroh</p>
             </div>
           </div>
         </div>            
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center ayat">
+            <h7>" Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berpikir.  ( Q.S. Ar-Rum: 21 )"</h7>
+            <br> <br> <br>
+          </div>
         </div>
       </div>
     </section>
@@ -246,6 +255,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       </div>
     </section>
 
+    <!-- Galerry -->
     <section id="gallery" class="gallery">
       <div class="container">
         <div class="row justify-content-center">
@@ -289,17 +299,12 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
           </div>
         </div>
 
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 mt-5 text-center">
-            <h7>" Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berpikir. "</h7>
-            <br>
-            <h8> ( Q.S. Ar-Rum: 21 )</h8>
-          </div>
-        </div>
+        
         
       </div>
     </section>
 
+    <!-- RSVP -->
     <section id="rsvp" class="rsvp">
       <div class="container">
         <div class="row justify-content-center">
@@ -431,8 +436,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       });
     </script>
 
-    <!-- Javascript Halaman Utama -->
-
+    <!-- Javascript Scroll Halaman Utama -->
     <script>
   const rootElement = document.querySelector(":root");
       function disableScroll() {
@@ -456,7 +460,7 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
       if(!localStorage.getItem("opened")){
         disableScroll();
       }
-</script>
+    </script> 
 
       <!-- Javascript Kolom komentar -->
    <script>
@@ -497,8 +501,12 @@ menyampaikan kabar bahagia kepada Bapak/Ibu/Saudara/i mengenai pernikahan kami</
           userId.image = "user.png";
         }
 
-        userId.message = userComment.value;
+        userId.message = userComment.value ;
+
+        
         userId.date = new Date().toLocaleDateString();
+
+
         let publihsed = `<div class="parents">
           <img src="${userId.image}">
           <div>

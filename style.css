@@ -84,7 +84,7 @@ body {
   min-height: 100vh;
   margin-top: -3.4rem;
   padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-bottom: 2rem;
   text-shadow: var(--shadow);
 }
 
@@ -99,7 +99,7 @@ body {
 }
 
 .home .couple {
-  margin-top: 50px;
+  margin-top: 25px;
   text-shadow: none;
 }
 
@@ -117,9 +117,18 @@ body {
 }
 
 .home .couple img {
-  width: 110%;
-  margin-top: 20px;
-  border-radius: 25%;
+  width: 100%;
+  border-radius: 5%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.home .ayat {
+  font-style: italic;
+  color: var(--blue);
+  text-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  margin-top: 35px;
 }
 
 .event,
@@ -189,25 +198,12 @@ body {
   letter-spacing: 1px;
   margin-bottom: 1rem;
   display: block;
-}
-
-.gallery h7,
-.gallery h8 {
-  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--blue);
-}
-
-.gallery h7 {
-  letter-spacing: -1px;
-  font-style: italic;
 }
 
 .story p,
 .gallery p {
   font-size: 1rem;
-  font-weight: 300;
 }
 
 .story h2,
@@ -332,10 +328,12 @@ body {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 500;
 }
 
 .rsvp p {
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .rsvp .card {
@@ -402,7 +400,7 @@ body {
 }
 
 .parents h1 {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   text-transform: none;
   font-weight: bold;
   color: var(--blue);
@@ -410,8 +408,9 @@ body {
 
 .parents p {
   margin: 10px 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-transform: none;
+  font-weight: 500;
 }
 
 .parents .date {
@@ -420,6 +419,7 @@ body {
   left: 0;
   font-size: 0.7rem;
   color: #808080;
+  font-weight: 500;
 }
 
 /* Media Query */
