@@ -427,7 +427,15 @@
       </div>
     </footer>
 
+    <div id="audio-container">
+      <audio id="song" autoplay loop>
+        <source src="song.mp3" type="audio/mp3">
+      </audio>
 
+      <div class="audio-icon" style="display: none;" >
+        <i class="bi bi-disc"></i>
+      </div>
+    </div>
 
 
     <!-- JAVASCRIPT -->
@@ -501,6 +509,10 @@
     <!-- Javascript Scroll Halaman Utama -->
     <script>
   const rootElement = document.querySelector(":root");
+  const audioIcon = document.querySelector (".audio-icon")
+  let isPlaying = false;
+  const song = document.querySelector("#song");
+
       function disableScroll() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -516,14 +528,29 @@
             function enableScroll() {
          window.onscroll = function (){ }
          rootElement.style.scrollBehavior = "smooth";
-         localStorage.setItem("opened", "true");
+         playAudio();
       }
 
-      if(!localStorage.getItem("opened")){
+      function playAudio(){
+        song.volume = 0.3;
+        audioIcon.style.display = "flex";
+        song.play();
+        isPlaying = true;
+      }
+
+      audioIcon.onclick = function(){
+        if(isPlaying) {
+          song.pause();
+        } else{
+          song.play();
+        }
+
+        isPlaying = !isPlaying;
+      }
+      
         disableScroll();
-      }
     </script> 
-
+ 
       <!-- Javascript Kolom komentar -->
    <script>
       "use strict";
@@ -622,3 +649,7 @@
 </html>
 
 
+<!--   FUNGSI DISABBLE SCCROLL
+localStorage.setItem("opened", "true");
+if(!localStorage.getItem("opened")){
+      -->

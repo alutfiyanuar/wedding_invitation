@@ -488,6 +488,34 @@ footer li {
   margin: 0.5rem;
 }
 
+.audio-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 3.5rem;
+  position: fixed;
+  bottom: 3rem;
+  right: 2.5rem;
+  cursor: pointer;
+  opacity: 0.8;
+  color: var(--white);
+  mix-blend-mode: difference;
+  animation: rotating 4s linear infinite;
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Media Query */
 
 /* Laptop */
