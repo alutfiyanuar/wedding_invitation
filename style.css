@@ -10,7 +10,6 @@
 body {
   font-size: 1.2rem;
   font-family: "Work Sans", sans-serif;
-  min-height: 6000px;
 }
 
 .hero::before {
@@ -182,7 +181,9 @@ body {
 }
 
 .story,
-.gallery {
+.gallery,
+.gift {
+  min-height: 100vh;
   padding-top: 6rem;
   padding-bottom: 4rem;
   background-image: url(img/SALE.png);
@@ -191,10 +192,11 @@ body {
 }
 
 .story span,
-.gallery span {
+.gallery span,
+.gift span {
   text-transform: uppercase;
   color: #666;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
   display: block;
@@ -203,11 +205,14 @@ body {
 
 .story p,
 .gallery p {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
 }
 
 .story h2,
-.gallery h2 {
+.gallery h2,
+.gift h2 {
   font-family: Handlee;
   font-size: 5rem;
   color: var(--blue);
@@ -332,20 +337,22 @@ body {
 }
 
 .rsvp p {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .rsvp .card {
-  border-radius: 10px;
   background-color: #eff2f6;
+  border-radius: 10px;
 }
 
 .rsvp .card-body {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
   background-color: #eff2f6;
+  border-bottom: 1px solid var(--blue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .form-label {
@@ -379,13 +386,24 @@ body {
   letter-spacing: 0 !important;
 }
 
+.comments {
+  height: 60vh;
+  overflow: auto;
+}
+
 .parents {
   width: 100%;
+  height: auto;
+  word-wrap: break-word;
   background-color: #eff2f6;
   display: flex;
-  margin-bottom: 30px;
   padding: 10px;
-  border-top: 1px solid var(--blue);
+  border-bottom: 1px solid var(--blue);
+  overflow: hidden;
+}
+
+.parents .box {
+  width: 100%;
 }
 
 .parents img {
@@ -420,6 +438,54 @@ body {
   font-size: 0.7rem;
   color: #808080;
   font-weight: 500;
+}
+
+.gift p {
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.gift li {
+  text-align: center;
+}
+
+.gift img {
+  max-width: 20%;
+  margin-left: -10px;
+  object-position: center;
+}
+
+.gift img.mandiri {
+  max-width: 25%;
+  margin-left: 0;
+}
+
+.gift img.qris {
+  max-width: 25%;
+  margin-left: 0;
+}
+
+footer {
+  padding: 3rem;
+  background-color: var(--blue);
+  color: white;
+}
+
+footer a {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--lblue);
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+footer li {
+  list-style: none;
+  display: inline;
+  margin: 0.5rem;
 }
 
 /* Media Query */
