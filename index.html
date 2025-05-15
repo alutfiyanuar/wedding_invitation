@@ -34,7 +34,7 @@
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white"
     >
       <main>
-        <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
+        <h4>Kepada <span>Bapak/Ibu/Saudara/i, </span></h4>
         <h1>Lutfi & Shabna</h1>
         <p>Akan melangsungkan resepsi pernikahan dalam:</p>
         <div class="simply-countdown"></div>
@@ -127,6 +127,10 @@
           <div class="col-md-8 col10 text-center">
             <h2>Informasi Acara</h2>
             <p class="alamat">Alamat: Sahassra Venue & Resto <br> Jl. Raya Jatiwaringin No.42, Cipinang Melayu, Jakarta Timur</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.074622966201!2d106.9092614!3d-6.253898899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f30077047d17%3A0x4eb33e47e512faaa!2sSahassra%20Venue%20%26%20Resto!5e0!3m2!1sid!2sid!4v1747224071308!5m2!1sid!2sid"
+            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<br>
             <a href="https://maps.app.goo.gl/5b4RnNEnFThryiZy7" target="_blank" class="btn btn-light btn-sm my-3"><i class="bi bi-geo-alt"></i> Google Maps</a>
             <p class="description">Diharapkan untuk tidak salah alamat dan tanggal. Manakala tiba di tujuan namun tidak ada tanda-tanda sedang dilangsungkan pernikahan, boleh jadi Anda salah jadwal, atau salah tempat. </p>
 
@@ -370,6 +374,7 @@
         </div>
     </section>
 
+    <!-- GIFT -->
     <section id="gift" class="gift">
       <div class="container">
         <div class="row justify-content-center">
@@ -510,8 +515,9 @@
     <script>
   const rootElement = document.querySelector(":root");
   const audioIcon = document.querySelector (".audio-icon")
-  let isPlaying = false;
+  const logoAudio = document.querySelector(".audio-icon i");
   const song = document.querySelector("#song");
+  let isPlaying = false;
 
       function disableScroll() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -532,7 +538,7 @@
       }
 
       function playAudio(){
-        song.volume = 0.3;
+        song.volume = 0.1;
         audioIcon.style.display = "flex";
         song.play();
         isPlaying = true;
@@ -541,8 +547,12 @@
       audioIcon.onclick = function(){
         if(isPlaying) {
           song.pause();
+          logoAudio.classList.remove("bi-disc");
+          logoAudio.classList.add("bi-pause-circle");
         } else{
           song.play();
+          logoAudio.classList.add("bi-disc");
+          logoAudio.classList.remove("bi-pause-circle");
         }
 
         isPlaying = !isPlaying;
@@ -644,6 +654,16 @@
 </script>
 
 
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const nama = urlParams.get("n") || "";
+  const pronoun = urlParams.get("p") || "Bapak/Ibu/Saudara/i";
+
+const namaContainer = doccument.querySelector(".hero h4 span");
+namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ",");
+
+document.querySelector("commentName").value = nama;
+</script>
 
   </body>
 </html>

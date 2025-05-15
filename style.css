@@ -387,7 +387,7 @@ body {
 }
 
 .comments {
-  height: 60vh;
+  max-height: 60vh;
   overflow: auto;
 }
 
@@ -507,6 +507,10 @@ footer li {
   line-height: 0;
 }
 
+iframe {
+  border-radius: 5px;
+}
+
 @keyframes rotating {
   from {
     transform: rotate(0);
@@ -588,6 +592,10 @@ footer li {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  iframe {
+    width: 80%;
   }
 
   .event .resepsi {
