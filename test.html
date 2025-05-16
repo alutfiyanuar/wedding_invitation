@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lutfi & Shabna Wedding</title>
+    <link rel="icon" href="img/love-letter.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com " />
+    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Italianno&family=Sacramento&family=Work+Sans :ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Countdown -->
+    <link rel="stylesheet" href="countdown/default.min.css" />
+    <script src="countdown/simplyCountdown.umd.js"></script>
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons @1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Halaman Utama -->
+    <div class="comment-section py-2 commentbox" style="max-width: 460px">
+      <!-- Comment Form -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="jumlah-komen">
+            <i class="bi bi-chat-left-text"></i>
+            <span id="jumlah-comment" class="jumlah-comment" name="jumlah"
+              >0</span
+            >
+            <span class="comment2">Komentar</span>
+          </div>
+          <form
+            method="POST"
+            action="https://script.google.com/macros/s/AKfycbwQEpiobs0-ADdBKUXv6ZQOW5HHBmvJha43DwrnovWRT8m3taB_cl_DkbcgdCAN0NAnEA/exec "
+            id="my-form"
+          >
+            <div class="mb-3 content">
+              <input
+                type="text"
+                class="user form-control"
+                id="commentName"
+                placeholder="Nama Anda"
+                name="commentName"
+              />
+            </div>
+            <div class="mb-3">
+              <textarea
+                class="form-control usercomment"
+                id="comments"
+                rows="3"
+                placeholder="Ucapan"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" disabled id="publish">
+              Kirim
+            </button>
+          </form>
+          <div class="comments mt-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript Scroll Halaman Utama -->
+    <script>
+      const rootElement = document.querySelector(":root");
+      const audioIcon = document.querySelector(".audio-icon");
+      const logoAudio = document.querySelector(".audio-icon i");
+      const song = document.querySelector("#song");
+      let isPlaying = false;
+
+      function disableScroll() {
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        window.onscroll = function () {
+          window.scrollTo(scrollTop, scrollLeft);
+        };
+        rootElement.style.scrollBehavior = "auto";
+      }
+
+      function enableScroll() {
+        window.onscroll = function () {};
+        rootElement.style.scrollBehavior = "smooth";
+        playAudio();
+      }
+
+      function playAudio() {
+        song.volume = 0.3;
+        audioIcon.style.display = "flex";
+        song.play();
+        isPlaying = true;
+      }
+
+      audioIcon.onclick = function () {
+        if (isPlaying) {
+          song.pause();
+          logoAudio.classList.remove("bi-disc");
+          logoAudio.classList.add("bi-pause-circle");
+        } else {
+          song.play();
+          logoAudio.classList.add("bi-disc");
+          logoAudio.classList.remove("bi-pause-circle");
+        }
+        isPlaying = !isPlaying;
+      };
+
+      disableScroll();
+    </script>
+
+    <!-- Javascript Kolom komentar -->
+    <script>
+      "use strict";
+      const userId = {
+        name: null,
+        identity: null,
+        image: null,
+        message: null,
+        date: null,
+      };
+
+      const userComment = document.querySelector(".usercomment");
+      const publishBtn = document.querySelector("#publish");
+      const comments = document.querySelector(".comments");
+      const userName = document.querySelector(".user");
+
+      userComment.addEventListener("input", (e) => {
+        if (!userComment.value) {
+          publishBtn.setAttribute("disabled", "disabled");
+          publishBtn.classList.remove("abled");
+        } else {
+          publishBtn.removeAttribute("disabled");
+          publishBtn.classList.add("abled");
+        }
+      });
+
+      function addPost() {
+        if (!userComment.value) return;
+
+        userId.name = userName.value || "Anonymous";
+        userId.image = "user.png";
+        userId.message = userComment.value;
+        userId.date = new Date().toLocaleDateString();
+
+        let publihsed = `
+        <div class="parents">
+          <img src="${userId.image}" alt="User">
+          <div class="box">
+            <h1>${userId.name}</h1>
+            <span class="date">${userId.date}</span>
+            <p>${userId.message}</p>
+          </div>
+        </div>`;
+        comments.innerHTML = publihsed + comments.innerHTML;
+        updateCommentCount();
+      }
+
+      function updateCommentCount() {
+        const count = document.querySelectorAll(".parents").length;
+        document.getElementById("jumlah-comment").textContent = count;
+      }
+
+      publishBtn.addEventListener("click", addPost);
+    </script>
+
+    <!-- Muat komentar saat halaman dimuat -->
+    <script>
+      window.addEventListener("load", function () {
+        const commentsContainer = document.querySelector(".comments");
+        fetch(
+          "https://script.google.com/macros/s/AKfycbzbL3yfPRT_R0Y-Hc_QOxEzdqeDqeI64cn56elLXHiUEsFe45AmYaAegvPsyyUkLK9vyw/exec "
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.length > 0) {
+              data.forEach((entry) => {
+                const name = entry["commentName"] || "Anonymous";
+                const message = entry["comments"] || "";
+                const date = new Date().toLocaleDateString();
+
+                const publihsed = `
+                <div class="parents">
+                  <img src="user.png" alt="User">
+                  <div class="box">
+                    <h1>${name}</h1>
+                    <span class="date">${date}</span>
+                    <p>${message}</p>
+                  </div>
+                </div>`;
+                commentsContainer.innerHTML += publihsed;
+              });
+              updateCommentCount();
+            }
+          })
+          .catch((err) => console.error("Gagal muat komentar:", err));
+      });
+
+      function updateCommentCount() {
+        const count = document.querySelectorAll(".parents").length;
+        document.getElementById("jumlah-comment").textContent = count;
+      }
+    </script>
+
+    <!-- Kirim formulir -->
+    <script>
+      window.addEventListener("load", function () {
+        const form = document.getElementById("my-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: "POST",
+            body: data,
+          });
+        });
+      });
+    </script>
+
+    <!-- Salin rekening -->
+    <script>
+      function copylutfi() {
+        const text = document.getElementById("rekeninglutfi").innerText;
+        navigator.clipboard.writeText(text);
+      }
+
+      function copyshabna() {
+        const text = document.getElementById("rekeningshabna").innerText;
+        navigator.clipboard.writeText(text);
+      }
+    </script>
+
+    <!-- Parameter URL -->
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const nama = urlParams.get("n") || "";
+      const pronoun = urlParams.get("p") || "Bapak/Ibu/Saudara/i";
+      const namaContainer = document.querySelector(".hero h4 span");
+      namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ",");
+      document.querySelector("#commentName").value = nama;
+    </script>
+  </body>
+</html>

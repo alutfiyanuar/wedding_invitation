@@ -369,7 +369,7 @@ body {
   vertical-align: top;
 }
 
-.comment {
+.jumlah-comment {
   color: var(--blue);
   position: relative; /* Atau fixed */
   top: -2px; /* Nilai negatif untuk memindahkan ke atas */
@@ -393,11 +393,19 @@ body {
 .parents {
   width: 100%;
   height: auto;
-  background-color: #eff2f6;
-  display: flex;
-  padding: 10px;
   border-bottom: 1px solid var(--blue);
   overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #f0f2f5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.parents:hover {
+  background-color: #e9ebee;
 }
 
 ::-webkit-scrollbar {
@@ -420,6 +428,7 @@ body {
 
 .parents .box {
   width: 100%;
+  flex-grow: 1;
 }
 
 .parents img {
@@ -427,17 +436,18 @@ body {
   height: 40px;
   border-radius: 50%;
   margin-top: 0;
-  margin-right: 20px;
+  margin-right: 12px;
   margin-left: 5px;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;
 }
 
 .parents h1 {
   font-size: 1.3rem;
   text-transform: none;
   font-weight: bold;
-  color: var(--blue);
+  color: #1c1e21;
 }
 
 .parents p {
@@ -445,15 +455,51 @@ body {
   font-size: 1rem;
   text-transform: none;
   font-weight: 500;
+  color: #1c1e21;
+  line-height: 1.4;
 }
 
-.parents .date {
-  display: flex;
+.parents .box .date {
+  display: block;
+  margin-bottom: 6px;
   top: -50px;
   left: 0;
   font-size: 0.7rem;
-  color: #808080;
+  color: #65676b;
   font-weight: 500;
+}
+
+.reactions {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reaction-btn {
+  background: none;
+  border: none;
+  color: #65676b;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.reaction-btn:hover {
+  background-color: #e4e6eb;
+  color: #1b74e4;
+}
+
+.reaction-btn i {
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+.reaction-count {
+  font-size: 13px;
+  color: #65676b;
 }
 
 .gift p {
