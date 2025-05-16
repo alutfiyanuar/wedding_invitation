@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form Komentar</title>
+    <style>
+      .parents {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+      }
+      .parents img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+      .box h1 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .box .date {
+        color: #777;
+        font-size: 12px;
+      }
+      .box p {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <div class="divSvgcontainer" style="width: 100px; height: 100px"></div>
+
+    <script>
+      window.addEventListener('DOMcontentloaded'. ()=> {
+        let txtname = document.getElementById('txtname');
+        txtname.addEventListener('keyup', (ev)=> {
+          updateAvatar(ev.target.value);
+        })
+      })
+
+      function updateAvatar(name){
+        let divSvgcontainer = document.getElementsByName('divSvgcontainer');
+        if(name.length){
+          var svgEl = multiavatar(name);
+          divSvgcontainer.innerHTML = svgEl;
+        }
+        else{
+          divSvgcontainer.innerHTML = '';
+        }
+      }
+    </script>
+  </body>
+</html>

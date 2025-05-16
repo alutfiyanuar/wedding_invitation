@@ -382,7 +382,6 @@ body {
   position: relative; /* Atau fixed */
   top: -2px; /* Nilai negatif untuk memindahkan ke atas */
   left: -16px; /* Untuk memposisikan di tepi kiri */
-  text-transform: none !important;
   letter-spacing: 0 !important;
 }
 
@@ -394,12 +393,29 @@ body {
 .parents {
   width: 100%;
   height: auto;
-  word-wrap: break-word;
   background-color: #eff2f6;
   display: flex;
   padding: 10px;
   border-bottom: 1px solid var(--blue);
   overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.parents::-webkit-scrollbar {
+  display: none;
 }
 
 .parents .box {
@@ -433,7 +449,7 @@ body {
 
 .parents .date {
   display: flex;
-  top: -50;
+  top: -50px;
   left: 0;
   font-size: 0.7rem;
   color: #808080;
@@ -632,11 +648,11 @@ iframe {
   }
 
   .hero h4 {
-    margin-top: 30px;
+    margin-top: -2rem;
   }
 
   .hero p {
-    margin-bottom: 280px;
+    margin-bottom: 28rem;
   }
 
   .timeline li .timeline-panel {

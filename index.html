@@ -333,7 +333,7 @@
               <span class="comment2">Komentar</span></div>
             <form 
             method="POST" 
-            action="https://script.google.com/macros/s/AKfycbwr-_E9tLBT-nVWC0DksUIDmv4u9rbr9_r99LRKpYZ_dZVELpMWCGK5Aa1_2Q8JMK5CUg/exec" id="my-form">
+            action="https://script.google.com/macros/s/AKfycbxzir-k6QUBZel_vLh2KfwNNm5V8HfjvDyHtDK7T45IH3a4lr2GU-ILXrzL04D0agFR0A/exec" id="my-form">
               <div class="mb-3 content">
                 <input
                   type="text"
@@ -511,6 +511,10 @@
       });
     </script>
 
+    <!-- JAVASCRIPT AVATAR -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@multiavatar/multiavatar/multiavatar.min.js"></script>
+
     <!-- Javascript Scroll Halaman Utama -->
     <script>
   const rootElement = document.querySelector(":root");
@@ -572,6 +576,7 @@
         message: null,
         date: null,
       };
+      
 
       const userComment = document.querySelector(".usercomment");
       const publishBtn = document.querySelector("#publish");
@@ -591,6 +596,7 @@
       function addPost() {
         if (!userComment.value) return;
         userId.name = userName.value;
+
         if (userId.name === "Anonymous") {
           userId.identity = false;
           userId.image = "user.png";
@@ -600,8 +606,6 @@
         }
 
         userId.message = userComment.value ;
-
-        
         userId.date = new Date().toLocaleDateString();
 
 
@@ -615,15 +619,49 @@
             </div>
           </div>`;
 
-        comments.innerHTML += publihsed;
+comments.innerHTML = publihsed + comments.innerHTML;
 
         let commentsNum = document.querySelectorAll(".parents").length;
         document.getElementById("comment").textContent = commentsNum;
       }
 
       publishBtn.addEventListener("click", addPost); 
-
+        
     </script>
+
+    <script>
+  window.addEventListener("load", function () {
+    const commentsContainer = document.querySelector(".comments");
+    // Ambil data dari Google Sheet via Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbzbL3yfPRT_R0Y-Hc_QOxEzdqeDqeI64cn56elLXHiUEsFe45AmYaAegvPsyyUkLK9vyw/exec ') // Ganti dengan URL Web App Anda
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          data.forEach(entry => {
+            const name = entry["commentName"] || "Anonymous";
+            const message = entry["comments"] || "";
+            const status = entry["status"] || "";
+            const date = new Date().toLocaleDateString();
+
+            const publihsed = `
+              <div class="parents">
+                <img src="user.png" alt="User">
+                <div class="box">
+                  <h1>${name}</h1>
+                  <span class="date">${date}</span>
+                  <p>${message}</p>
+                </div>
+              </div>`;
+            commentsContainer.innerHTML += publihsed;
+          });
+
+          // Update jumlah komentar
+          const commentsNum = document.querySelectorAll(".parents").length;
+          commentCountElement.textContent = commentsNum;
+        }
+      })
+  });
+</script>
 
 
 <script>
@@ -640,6 +678,8 @@
   });
 });
 </script>
+
+
 
 <script>
      function copylutfi() {
@@ -659,10 +699,10 @@
   const nama = urlParams.get("n") || "";
   const pronoun = urlParams.get("p") || "Bapak/Ibu/Saudara/i";
 
-const namaContainer = doccument.querySelector(".hero h4 span");
+const namaContainer = document.querySelector(".hero h4 span");
 namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ",");
 
-document.querySelector("commentName").value = nama;
+document.querySelector("#commentName").value = nama;
 </script>
 
   </body>
