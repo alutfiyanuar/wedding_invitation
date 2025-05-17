@@ -34,7 +34,7 @@
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white"
     >
       <main>
-        <h4>Kepada <span>Bapak/Ibu/Saudara/i, </span></h4>
+        <h4>Kepada <span>Bapak/Ibu/Saudara/i, </span> dan partner</h4>
         <h1>Lutfi & Shabna</h1>
         <p>Akan melangsungkan resepsi pernikahan dalam:</p>
         <div class="simply-countdown"></div>
@@ -105,7 +105,7 @@
             <div class="col-8">
               <h2>Shabna</h2>
               <h4>Shabna Achmad</h4>
-              <p>Putra kedua dari <br> Bpk. Achmad Bugis<br>dan Ibu Nadiroh</p>
+              <p>Putri kedua dari <br> Bpk. Achmad Bugis<br>dan Ibu Nadiroh</p>
             </div>
           </div>
         </div>            
@@ -666,34 +666,42 @@
 
 <!-- FUNGSI LIKE COMMENT -->
  <script>
-  // Fungsi Like Comment
-  window.likeComment = function(button) {
-    const reactionCount = button.nextElementSibling;
-    let count = parseInt(reactionCount.textContent);
-    count++;
-    reactionCount.textContent = count;
+  // Fungsi Like/Unlike Comment
+window.likeComment = function(button) {
+  const reactionCount = button.nextElementSibling;
+  let count = parseInt(reactionCount.textContent);
+  const icon = button.querySelector("i");
 
-    // Ganti ikon menjadi biru saat diklik
-    const icon = button.querySelector("i");
+  // Jika sudah di-like (warna merah), maka unlike
+  if (icon.classList.contains("bi-heart-fill")) {
+    icon.classList.remove("bi-heart-fill");
+    icon.classList.add("bi-heart");
+    icon.style.color = ""; // Reset warna ke default
+    count--; // Kurangi jumlah like
+  } else {
+    // Jika belum di-like, tambahkan like
     icon.classList.remove("bi-heart");
     icon.classList.add("bi-heart-fill");
-    icon.style.color = "#d9534f";
+    icon.style.color = "#d9534f"; // Warna merah saat di-like
+    count++; // Tambah jumlah like
+  }
 
-    // [Opsional] Kirim jumlah like ke Google Apps Script jika ingin menyimpannya
-    const commentText = button.closest('.box').querySelector('p').textContent;
+  reactionCount.textContent = count;
 
-    fetch('https://script.google.com/macros/s/AKfycbzBzYi_k_x1V-le-pTQgHxCamz6st-Z_C6RgTJyHmSotmbROINvEROE9ETii0o1_JYc/exec', {
-      method: 'POST',
-      body: JSON.stringify({
-        commentName: button.closest('.box').querySelector('h1').textContent,
-        comments: commentText,
-        likes: count
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  };
+  // [Opsional] Kirim jumlah like terbaru ke Google Apps Script
+  const commentText = button.closest('.box').querySelector('p').textContent;
+  fetch('https://script.google.com/macros/s/AKfycbzBzYi_k_x1V-le-pTQgHxCamz6st-Z_C6RgTJyHmSotmbROINvEROE9ETii0o1_JYc/exec ', {
+    method: 'POST',
+    body: JSON.stringify({
+      commentName: button.closest('.box').querySelector('h1').textContent,
+      comments: commentText,
+      likes: count
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+};
  </script>
 
 
